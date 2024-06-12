@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "booking": {
+      "type": "object",
+      "properties": {
+        "bookingdates": {
+          "type": "object",
+          "properties": {
+            "checkin": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "checkout": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            }
+          },
+          "required": ["checkin", "checkout"]
+        }
+      },
+      "required": ["bookingdates"]
+    }
+  },
+  "required": ["booking"]
+}

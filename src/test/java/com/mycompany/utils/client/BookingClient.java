@@ -1,5 +1,6 @@
 package com.mycompany.utils.client;
 
+import com.mycompany.utils.model.Booking;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
@@ -24,6 +25,15 @@ public class BookingClient extends BaseClient{
                 .when()
                 .get("/booking/{id}").then();
 
+    }
+
+    public ValidatableResponse createBooking(Booking booking) throws IOException{
+        return given().spec(baseSpec())
+                .log().body()
+                .when()
+                .body(booking)
+                .post("/booking")
+                .then();
     }
 
 }
