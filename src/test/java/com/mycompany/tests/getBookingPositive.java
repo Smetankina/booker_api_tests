@@ -2,6 +2,7 @@ package com.mycompany.tests;
 
 
 import com.mycompany.utils.client.BookingClient;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 
@@ -16,6 +17,8 @@ public class getBookingPositive {
 
     BookingClient bookingClient = new BookingClient();
     Random random = new Random();
+
+    @DisplayName("Check body response key Id isNotEmpty getBookingById")
     @Test
     public void getBookingByIdNotEmpty() throws IOException {
         ArrayList w = bookingClient.getBookingIds().path("bookingid");
@@ -26,6 +29,7 @@ public class getBookingPositive {
 
     }
 
+    @DisplayName("Check content type getBookingById")
     @Test
     public void getBookingByIdCorrectContentType() throws IOException {
         ArrayList w = bookingClient.getBookingIds().path("bookingid");

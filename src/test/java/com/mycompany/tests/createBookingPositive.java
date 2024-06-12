@@ -1,5 +1,6 @@
 package com.mycompany.tests;
 
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import com.mycompany.utils.client.BookingClient;
 import com.mycompany.utils.model.Booking;
@@ -17,6 +18,7 @@ import java.util.Date;
 public class createBookingPositive {
     BookingClient bookingClient = new BookingClient();
 
+    @DisplayName("Check status code 200 OK createBooking")
     @Description("Success code 200 OK")
     @Test
     public void createBooking200OK() throws IOException {
@@ -28,6 +30,7 @@ public class createBookingPositive {
 
     }
 
+    @DisplayName("Checkin date should be less then Checkout date")
     @Description("Checkin date should be less then Checkout date")
     @Test
     public void checkCheckinCheckoutDates() throws IOException, ParseException {
@@ -45,6 +48,7 @@ public class createBookingPositive {
         Assert.assertTrue(checkin.before(checkout), "Checkin date " + checkinString + " is not before the checkout date " + checkoutString);
     }
 
+    @DisplayName("Check the response structure create Booking handle")
     @Description("Check the response structure")
     @Test
 
