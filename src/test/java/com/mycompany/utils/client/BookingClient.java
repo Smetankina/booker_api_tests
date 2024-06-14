@@ -4,6 +4,7 @@ import com.mycompany.utils.model.Booking;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 
+
 import java.io.IOException;
 
 import static io.restassured.RestAssured.given;
@@ -29,7 +30,7 @@ public class BookingClient extends BaseClient{
 
     public ValidatableResponse createBooking(Booking booking) throws IOException{
         return given().spec(baseSpec())
-                .log().body()
+             //   .log().body()
                 .when()
                 .body(booking)
                 .post("/booking")
